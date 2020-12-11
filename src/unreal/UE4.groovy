@@ -52,7 +52,7 @@ def RunCommand(def Command)
 /* Initialise the Object with a project name, engine directory, optional project directory and optional default arguments to pass to all commands 
  * if projectDir is not passed it is assumed the engine dir is where the project can be found
  */
-def Initialise(String projectName, String engineDir, String projectDir = "", String defaultArguments = "", bool bIsSourceEngine = false)
+def Initialise(String projectName, String engineDir, String projectDir = "", String defaultArguments = "", boolean bIsSourceEngine = false)
 {
 	ProjectName		= projectName
 	EngineDir		= engineDir
