@@ -52,7 +52,7 @@ def RunCommand(def Command)
 /* Initialise the Object with a project name, engine directory, optional project directory and optional default arguments to pass to all commands 
  * if projectDir is not passed it is assumed the engine dir is where the project can be found
  */
-def Initialise(String projectName, String engineDir, String projectDir = "", String defaultArguments = "")
+def Initialise(String projectName, String engineDir, String projectDir = "", String defaultArguments = "", bool bIsSourceEngine = false)
 {
 	ProjectName		= projectName
 	EngineDir		= engineDir
@@ -75,6 +75,8 @@ def Initialise(String projectName, String engineDir, String projectDir = "", Str
 	UAT = "\"${EngineDir}/Engine/Build/BatchFiles/RunUAT.${ScriptInvocationType}\""
 
 	UE4_CMD = "\"${EngineDir}/Engine/Binaries/Win64/UE4Editor-Cmd.exe\""
+	
+	bIsSourceBuildEngine = bIsSourceEngine
 }
 
 /* Runs Setup.bat */
@@ -86,7 +88,14 @@ def Setup()
 /* Generate Project files for the initialised project */
 def GenerateProjectFiles()
 {
-	RunCommand("\"${BatchDir}/GenerateProjectFiles.${ScriptInvocationType}\" -projectfiles -project=${ProjectFile} -game -engine -progress ${DefaultArguments}")
+	if(bIsSourceBuildEngine)
+	{
+		RunCommand("\"${BatchDir}/GenerateProjectFiles.${ScriptInvocationType}\" -projectfiles -project=${ProjectFile} -game -engine -progress ${DefaultArguments}")
+	}
+	else
+	{
+		RunCommand("\"${UBT}" -ProjectFiles -UsePrecompiled -Game "${ProjectFile}"")
+	}
 }
 
 /** 
