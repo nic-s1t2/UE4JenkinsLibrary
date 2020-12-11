@@ -94,7 +94,7 @@ def GenerateProjectFiles()
 	}
 	else
 	{
-		RunCommand("\"${UBT}" -ProjectFiles -UsePrecompiled -Game "${ProjectFile}"")
+		RunCommand("\"${UBT} -ProjectFiles -UsePrecompiled -Game ${ProjectFile}")
 	}
 }
 
