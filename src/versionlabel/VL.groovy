@@ -16,9 +16,11 @@ def RunCommand(def Command)
 def Initialise(String InProjectDir)
 {
 	ConfigFile	= "${InProjectDir}/Config/DefaultGame.ini"
-	
-	// Makes the Config File writable
-	RunCommand("attrib -r \"%ConfigFile%\"")
+}
+
+def UnlockConfig()
+{
+	RunCommand("attrib -r ${ConfigFile}")
 }
 
 def UpdatePrefix(String NewPrefix)
