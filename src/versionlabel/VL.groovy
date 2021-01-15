@@ -23,15 +23,15 @@ def Initialise(String InProjectDir)
 
 def UpdatePrefix(String NewPrefix)
 {
-	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumberPrefix /v %NewPrefix% \"%ConfigFile%\"")
+	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumberPrefix /v "+ NewPrefix +  " " + ConfigFile)
 }
 
 def UpdateNumber(String NewNumber)
 {
-	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumber /v %NewNumber% \"%ConfigFile%\"")
+	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumber /v " + NewNumber + " " + ConfigFile)
 }
 
 def UpdateSuffix(String NewSuffix)
 {
-	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumberSuffix /v \"_%NewSuffix%\" \"%ConfigFile%\"")
+	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumberSuffix /v _" +  NewSuffix + " " + ConfigFile)
 }
