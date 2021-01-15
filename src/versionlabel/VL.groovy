@@ -15,7 +15,8 @@ def RunCommand(def Command)
 
 def Test()
 {
-	Runtime.runtime.exec(Test.bat)
+	echo "Poop"
+	//Runtime.runtime.exec(Test.bat)
 }
 
 def Initialise(String InProjectDir)
