@@ -187,4 +187,15 @@ def BuildDDC()
 	 RunCommand("${UE4_CMD} ${ProjectFile} -run=DerivedDataCache -fill ${DefaultArguments}")
 }
 
+/**
+  * Full Build, Cook, Compile and package command, works for iOS and Windows.
+  * platform - The platform we want to package for
+  * buildConfiguration - the desired build config
+  * stagingDir - location to output the completed build.
+ */
+def QuickPackage(String platform, BuildConfiguration buildConfiguration, String stagingDir)
+{
+	RunCommand("${UAT} BuildCookRun -project=${ProjectFile} -platform=${platform} -cook -stage -clean -pak -archive -nocompileeditor -NoSubmit -package -clientconfig=" + buildConfiguration.name() + " -archivedirectory=\"${stagingDir}\"")
+}
+
 return this
