@@ -212,4 +212,20 @@ def RunGauntletTest(String platform, String buildDir, BuildConfiguration buildCo
 	RunCommand("${UAT} RunUnreal -project=\"${ProjectFile}\" -scriptdir=\"${ProjectDir}\\Build\\Scripts\" -platform=${platform} -build=\"${buildDir}\" -configuration=" + buildConfiguration.name() + " -test=\"${test}(ReportPath=\"${reportDir}\")\" -devices=\"${devicesJson}\" -veryverbose")
 }
 
+/**
+  * For deploying onto Windows devices over the network
+  * projectdir=<PathToUProjectFile>", "The path to your game's .uproject file
+  * devices=<Devices.json>", "Devices to install on. If empty uses the local machine, ie this computer
+  * configuration=<Config>", "Configuration to install/launch. Defaults to development
+  * build=<path>", "Path to a folder with a build, or a folder that contains platform folders with builds in (e.g. /Saved/StagedBuilds)
+  * test=<test>", "Name of test to run, as per gauntlet launch scripts eg \"DaedalicTestAutomationPlugin.Automation.DaeGauntletTest\". You can also define a test in the Devices.json per-device, and any set there will override this argument. So you could consider this argument the 'default' test to run on any devices with no test designated
+  * reportdir=<test>", "Path to directory to copy all remote reports to, for local access
+  * cleanup=true/false", "bool flag to delete any evidence off the target device(s). If true everything coped will be deleted, including reports. Default is false
+  * cmdline=<AdditionalArguments>", "Additional command line arguments to pass to build for when it launches
+ */
+def WindowsDeployTest()
+{
+	RunCommand("${UAT} WinDeploy -projectdir=\"${projectFile}\" -devices=\"${devicesJson}\" -configuration=\"${config}\" -build=\"${buildPath}\" -test=\"${test}\" -reportdir=\"${reportDir}\" -cleanup=true -cmdline=\"${cmdLine}\"")
+}
+
 return this
