@@ -198,4 +198,18 @@ def QuickPackage(String platform, BuildConfiguration buildConfiguration, String 
 	RunCommand("${UAT} BuildCookRun -project=${ProjectFile} -platform=${platform} -cook -stage -clean -pak -archive -nocompileeditor -NoSubmit -package -clientconfig=" + buildConfiguration.name() + " -archivedirectory=\"${stagingDir}\"")
 }
 
+/**
+  * Run Gauntlet test(s) on designated build and target machines as outlined in Devices.json
+  * platform - target platform type, eg Win64/IOS/Android
+  * buildDir - location of build to run test(s) on
+  * buildConfiguration - build config type, eg Development
+  * test - the test suite to run, eg DaedalicTestAutomationPlugin.Automation.DaeGauntletTest
+  * reportDir - location to output reports to
+  * devicesJson - path to devices.json file that outlines what devices to run the tests on
+ */
+def RunGauntletTest(String platform, String buildDir, BuildConfiguration buildConfiguration, String test, String reportDir, String devicesJson)
+{
+	RunCommand("${UAT} RunUnreal -project=\"${ProjectFile}\" -scriptdir=\"${ProjectDir}\\Build\\Scripts\" -platform=${platform} -build=\"${buildDir}\" -configuration=" + buildConfiguration.name() + " -test=\"${test}(ReportPath=\"${reportDir}\")\" -devices=\"${devicesJson}\" -veryverbose")
+}
+
 return this
