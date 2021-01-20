@@ -18,7 +18,7 @@ def RunCommand(def Command)
 
 def BuildVsProject(String vsProjPath, String configuration)
 {
-	RunCommand("\"${msbuildPath}\" \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\",\"AdditionalLibPaths=C:\\Program Files\\Epic Games\"")
+	RunCommand("\"${msbuildPath}\" \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
 }
 
 def WriteFile(String outputFile, String content)
