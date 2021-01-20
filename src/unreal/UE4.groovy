@@ -223,9 +223,9 @@ def RunGauntletTest(String platform, String buildDir, BuildConfiguration buildCo
   * cleanup=true/false", "bool flag to delete any evidence off the target device(s). If true everything coped will be deleted, including reports. Default is false
   * cmdline=<AdditionalArguments>", "Additional command line arguments to pass to build for when it launches
  */
-def WindowsDeployTest()
+def WindowsDeployTest(String devicesJson, String config, String buildPath, String test, String reportDir, String cmdLine)
 {
-	RunCommand("${UAT} WinDeploy -projectdir=\"${projectFile}\" -devices=\"${devicesJson}\" -configuration=\"${config}\" -build=\"${buildPath}\" -test=\"${test}\" -reportdir=\"${reportDir}\" -cleanup=true -cmdline=\"${cmdLine}\"")
+	RunCommand("${UAT} WinDeploy -projectdir=\"${ProjectFile}\" -devices=\"${devicesJson}\" -configuration=\"${config}\" -build=\"${buildPath}\" -test=\"${test}\" -reportdir=\"${reportDir}\" -cleanup=true -cmdline=\"${cmdLine}\"")
 }
 
 return this
