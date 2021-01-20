@@ -43,3 +43,5 @@ def UpdateSuffix(String NewSuffix)
 {
 	RunCommand("ini /s /Script/nfVersionLabelUI.VLSettings /i BuildNumberSuffix /v _${NewSuffix} ${ConfigFile}")
 }
+
+return this
