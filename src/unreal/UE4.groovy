@@ -227,7 +227,7 @@ def RunGauntletTest(String platform, String buildDir, BuildConfiguration buildCo
  */
 def WindowsDeployTest(String devicesJson, String config, String buildPath, String test, String reportDir, String cmdLine)
 {
-	RunCommand("${UAT} WinDeploy -projectdir=\"${ProjectFile}\" -devices=\"${devicesJson}\" -configuration=\"${config}\" -build=\"${buildPath}\" -test=\"${test}\" -reportdir=\"${reportDir}\" -cleanup=true -cmdline=\"${cmdLine}\"")
+	RunCommand("${UAT} WinDeploy -projectdir=${ProjectFile} -devices=\"${devicesJson}\" -configuration=\"${config}\" -build=\"${buildPath}\" -test=\"${test}\" -reportdir=\"${reportDir}\" -cleanup=true -cmdline=\"${cmdLine}\"")
 }
 
 return this
