@@ -209,7 +209,7 @@ def QuickPackage(String platform, BuildConfiguration buildConfiguration, String 
  */
 def RunGauntletTest(String platform, String buildDir, BuildConfiguration buildConfiguration, String test, String reportDir, String devicesJson)
 {
-	RunCommand("${UAT} RunUnreal -project=\"${ProjectFile}\" -scriptdir=\"${EngineDir}/Engine/Binaries/DotNET/AutomationScripts\" -platform=${platform} -build=\"${buildDir}\" -configuration=" + buildConfiguration.name() + " -test=\"DaedalicTestAutomationPlugin.Automation.DaeGauntletTest(ReportPath=\"${reportDir}, TestName=${test}\")\" -devices=\"${devicesJson}\" -veryverbose")
+	RunCommand("${UAT} RunUnreal -project=\"${ProjectFile}\" -scriptdir=\"${EngineDir}/Engine/Binaries/DotNET/AutomationScripts/Daedalic\" -platform=${platform} -build=\"${buildDir}\" -configuration=" + buildConfiguration.name() + " -test=\"DaedalicTestAutomationPlugin.Automation.DaeGauntletTest(ReportPath=\"${reportDir}, TestName=${test}\")\" -devices=\"${devicesJson}\" -veryverbose")
 }
 
 /**
