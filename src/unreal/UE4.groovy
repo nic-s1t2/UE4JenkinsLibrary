@@ -195,7 +195,7 @@ def BuildDDC()
  */
 def QuickPackage(String platform, BuildConfiguration buildConfiguration, String stagingDir)
 {
-	RunCommand("${UAT} BuildCookRun -project=${ProjectFile} -platform=${platform} -noP4 -allmaps -build -cook -stage -clean -pak -archive -package -clientconfig=" + buildConfiguration.name() + " -archivedirectory=\"${stagingDir}\"")
+	RunCommand("${UAT} BuildCookRun -project=${ProjectFile} -platform=${platform} -noP4 -allmaps -build -cook -stage -clean -pak -archive -package -clientconfig=" + buildConfiguration.name() + " -archivedirectory=${stagingDir}")
 }
 
 /**
