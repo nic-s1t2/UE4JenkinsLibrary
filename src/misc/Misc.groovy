@@ -28,7 +28,8 @@ def WriteFile(String outputFile, String content)
 
 def ReadFile(String inputFile)
 {
-	return readFile file: inputFile
+	def Out = readFile file: inputFile
+	return Out
 }
 
 def MakeWritable(String targetFile)
