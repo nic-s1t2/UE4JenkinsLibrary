@@ -26,6 +26,11 @@ def WriteFile(String outputFile, String content)
 	writeFile file: outputFile, text: content
 }
 
+def ReadFile(String inputFile)
+{
+	return readFile file: inputFile
+}
+
 def MakeWritable(String targetFile)
 {
 	RunCommand("attrib -r ${targetFile}")
