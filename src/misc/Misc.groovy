@@ -26,4 +26,9 @@ def WriteFile(String outputFile, String content)
 	writeFile file: outputFile, text: content
 }
 
+def MakeWritable(String targetFile)
+{
+	RunCommand("attrib -r ${targetFile}")
+}
+
 return this
