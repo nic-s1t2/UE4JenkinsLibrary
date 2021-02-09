@@ -4,8 +4,8 @@ package misc;
 
 def Initialise(String inSevenZipPath = "C:\\Program Files\\7-Zip\\7z.exe", String inMsBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\msbuild.exe")
 {
-	msbuildPath = inMsBuildPath
-	sevenZipPath = inSevenZipPath
+	msbuildPath = "\"${inMsBuildPath}\""
+	sevenZipPath = "\"${inSevenZipPath}\""
 		
 	echo "Misc Lib initialised"
 }
