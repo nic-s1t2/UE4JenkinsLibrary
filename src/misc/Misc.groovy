@@ -36,7 +36,7 @@ def MakeWritable(String targetFile)
 	RunCommand("attrib -r ${targetFile}")
 }
 
-def ZipToRAR(String source, String target)
+def CompressToRar(String source, String target)
 {
 	RunCommand("${sevenZipPath} a -t7z \"${target}\" \"${source}\"")
 }
