@@ -2,11 +2,10 @@
 
 package misc;
 
-def Initialise()
+def Initialise(String inSevenZipPath = "C:\\Program Files\\7-Zip\\7z.exe", String inMsBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\msbuild.exe")
 {
-	//why yes this is gross and hardcoded.
-	//probably fine though as this installation is handled by VS Installer and is very consistent
-	msbuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\msbuild.exe"
+	msbuildPath = inMsBuildPath
+	sevenZipPath = inSevenZipPath
 		
 	echo "Misc Lib initialised"
 }
@@ -35,6 +34,17 @@ def ReadFile(String inputFile)
 def MakeWritable(String targetFile)
 {
 	RunCommand("attrib -r ${targetFile}")
+}
+
+def ZipToRAR(String source, String target)
+{
+	RunCommand("${sevenZipPath} a -t7z \"${target}\" \"${source}\"")
+}
+
+def CopyFile(String source, String target)
+{
+	//RunCommand("scp \"${source}\" \"${target}\"")
+	RunCommand("robocopy \"${source}\" \"${target}\"")
 }
 
 return this
