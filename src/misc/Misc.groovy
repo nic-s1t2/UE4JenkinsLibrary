@@ -41,10 +41,14 @@ def CompressToRar(String source, String target)
 	RunCommand("${sevenZipPath} a -t7z \"${target}\" \"${source}\"")
 }
 
-def CopyFile(String source, String target, String file = "")
+def CopyFile(String source, String target)
 {
-	//RunCommand("scp \"${source}\" \"${target}\"")
-	RunCommand("robocopy \"${source}\" \"${target}\" \"${file}\"")
+	RunCommand("scp \"${source}\" \"${target}\"")
+}
+
+def CopyDirectory(String source, String target)
+{
+	RunCommand("robocopy \"${source}\" \"${target}\"")
 }
 
 return this
