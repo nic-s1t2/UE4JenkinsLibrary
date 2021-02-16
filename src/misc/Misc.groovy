@@ -12,7 +12,14 @@ def Initialise(String inSevenZipPath = "C:\\Program Files\\7-Zip\\7z.exe", Strin
 
 def RunCommand(def Command)
 {
-	bat(script: Command, returnStdout: true)
+	if(isUnix())
+	{
+		sh(script: Command, returnStdout: true)
+	}
+	else
+	{
+		bat(script: Command, returnStdout: true)
+	}
 }
 
 def BuildVsProject(String vsProjPath, String configuration)
@@ -33,22 +40,50 @@ def ReadFile(String inputFile)
 
 def MakeWritable(String targetFile)
 {
-	RunCommand("attrib -r ${targetFile}")
+	if(isUnix())
+	{
+		RunCommand("sudo chmod u=rw,g=rw,o=rw \"${targetFile}\"")
+	}
+	else
+	{
+		RunCommand("attrib -r ${targetFile}")
+	}
 }
 
 def CompressToRar(String source, String target)
 {
-	RunCommand("${sevenZipPath} a -t7z \"${target}\" \"${source}\"")
+	if(isUnix())
+	{
+		RunCommand("zip -r \"${target}\" \"${source}\"")
+	}
+	else
+	{
+		RunCommand("${sevenZipPath} a -t7z \"${target}\" \"${source}\"")
+	}
 }
 
 def CopyFile(String source, String target)
 {
-	RunCommand("scp \"${source}\" \"${target}\"")
+	if(isUnix())
+	{
+		RunCommand("cp \"${source}\" \"${target}\"")
+	}
+	else
+	{
+		RunCommand("scp \"${source}\" \"${target}\"")
+	}
 }
 
 def CopyDirectory(String source, String target)
 {
-	RunCommand("robocopy \"${source}\" \"${target}\"")
+	if(isUnix())
+	{
+		RunCommand("cp -R \"${source}\" \"${target}\"")
+	}
+	else
+	{
+		RunCommand("robocopy \"${source}\" \"${target}\"")
+	}
 }
 
 return this
