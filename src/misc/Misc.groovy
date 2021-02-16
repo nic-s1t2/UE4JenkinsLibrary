@@ -86,4 +86,16 @@ def CopyDirectory(String source, String target)
 	}
 }
 
+def DeleteDirectory(String target)
+{
+	if(isUnix())
+	{
+		RunCommand("rm -r \"${WORKSPACE}\"")
+	}
+	else
+	{
+		RunCommand("del /S /Q /F \"${WORKSPACE}\"")
+	}
+}
+
 return this
