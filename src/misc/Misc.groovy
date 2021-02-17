@@ -26,7 +26,7 @@ def BuildVsProject(String vsProjPath, String configuration)
 {
 	if(isUnix())
 	{
-		RunCommand("/usr/local/bin/msbuild \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
+		RunCommand("/usr/local/bin/msbuild ${vsProjPath} -t:rebuild -r -p:\"Configuration=${configuration}\"")
 	}
 	else
 	{
@@ -73,7 +73,7 @@ def CopyFile(String source, String target)
 {
 	if(isUnix())
 	{
-		RunCommand("cp \"${source}\" \"${target}\"")
+		RunCommand("cp ${source} ${target}")
 	}
 	else
 	{
@@ -85,7 +85,7 @@ def CopyDirectory(String source, String target)
 {
 	if(isUnix())
 	{
-		RunCommand("cp -R \"${source}\" \"${target}\"")
+		RunCommand("cp -R ${source} ${target}")
 	}
 	else
 	{
