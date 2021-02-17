@@ -85,7 +85,7 @@ def CopyDirectory(String source, String target)
 {
 	if(isUnix())
 	{
-		RunCommand("cp -R ${source} ${target}")
+		RunCommand("cp -r \"${source}\" \"${target}\"")
 	}
 	else
 	{
