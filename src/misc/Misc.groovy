@@ -24,7 +24,14 @@ def RunCommand(def Command)
 
 def BuildVsProject(String vsProjPath, String configuration)
 {
-	RunCommand("${msbuildPath} \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
+	if(isUnix())
+	{
+		RunCommand("msbuild \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
+	}
+	else
+	{
+		RunCommand("${msbuildPath} \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
+	}
 }
 
 def WriteFile(String outputFile, String content)
