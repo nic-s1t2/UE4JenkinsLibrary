@@ -70,7 +70,7 @@ def CopyFile(String source, String target)
 	}
 	else
 	{
-		RunCommand("scp \"${source}\" \"${target}\"")
+		RunCommand("xcopy \"${target}\" \"${source}\" /E /H /C /I /Y")
 	}
 }
 
