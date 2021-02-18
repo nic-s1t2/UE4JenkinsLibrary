@@ -69,15 +69,15 @@ def CompressToRar(String source, String target)
 	}
 }
 
-def CopyFile(String source, String target)
+def CopyFile(String source, String target, String file)
 {
 	if(isUnix())
 	{
-		RunCommand("cp \"${source}\" \"${target}\"")
+		RunCommand("cp \"${source}/${file}\" \"${target}/${file}\"")
 	}
 	else
 	{
-		RunCommand("copy /Y \"${source}\" \"${target}\"")
+		RunCommand("robocopy \"${source}\" \"${target}\" ${file}")
 	}
 }
 
