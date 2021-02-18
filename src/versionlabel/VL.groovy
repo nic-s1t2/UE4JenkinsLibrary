@@ -7,10 +7,13 @@ def ConfigFile	= ''
 
 def RunCommand(def Command)
 {
-	bat(
-		returnStdout: true,
-		script: Command
-	)
+	if(isUnix())
+	{
+		sh( returnStdout: true, script: Command)
+	}
+	{
+		bat( returnStdout: true, script: Command)
+	}
 }
 
 def Test()
