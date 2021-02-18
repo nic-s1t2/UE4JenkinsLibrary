@@ -77,7 +77,7 @@ def CopyFile(String source, String target)
 	}
 	else
 	{
-		RunCommand("xcopy \"${target}\" \"${source}\" /E /H /C /I /Y")
+		RunCommand("copy /Y \"${source}\" \"${target}\"")
 	}
 }
 
