@@ -29,7 +29,14 @@ def Initialise(String InProjectDir)
 
 def UnlockConfig()
 {
-	RunCommand("attrib -r ${ConfigFile}")
+	if(isUnix())
+	{
+		RunCommand("sudo chmod u=rw,g=rw,o=rw \"${ConfigFile}\"")
+	}
+	else
+	{
+		RunCommand("attrib -r ${ConfigFile}")
+	}
 }
 
 def UpdatePrefix(String NewPrefix)
