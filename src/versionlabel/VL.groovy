@@ -25,7 +25,7 @@ def Test()
 
 def Initialise(String InProjectDir)
 {
-	ConfigFile	= "${InProjectDir}\\Config\\DefaultGame.ini"
+	ConfigFile	= "${InProjectDir}/Config/DefaultGame.ini"
 }
 
 def UnlockConfig()
