@@ -11,6 +11,7 @@ def RunCommand(def Command)
 	{
 		sh( returnStdout: true, script: Command)
 	}
+	else
 	{
 		bat( returnStdout: true, script: Command)
 	}
