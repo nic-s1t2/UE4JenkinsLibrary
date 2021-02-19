@@ -53,7 +53,7 @@ def MakeWritable(String targetFile)
 	}
 	else
 	{
-		RunCommand("attrib -r ${targetFile}")
+		RunCommand("attrib -r \"${targetFile}"\")
 	}
 }
 
