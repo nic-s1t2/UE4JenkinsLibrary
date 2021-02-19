@@ -73,7 +73,7 @@ def CopyFile(String source, String target, String file)
 {
 	if(isUnix())
 	{
-		RunCommand("cp \"${source}/${file}\" \"${target}/${file}\"")
+		RunCommand("sudo cp \"${source}/${file}\" \"${target}/${file}\"")
 	}
 	else
 	{
@@ -85,7 +85,7 @@ def CopyDirectory(String source, String target)
 {
 	if(isUnix())
 	{
-		RunCommand("cp -r \"${source}\" \"${target}\"")
+		RunCommand("sudo cp -r \"${source}\" \"${target}\"")
 	}
 	else
 	{
@@ -97,7 +97,7 @@ def DeleteDirectory(String target)
 {
 	if(isUnix())
 	{
-		RunCommand("rm -r \"${WORKSPACE}\"")
+		RunCommand("sudo rm -r \"${WORKSPACE}\"")
 	}
 	else
 	{
