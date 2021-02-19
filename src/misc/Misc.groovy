@@ -77,7 +77,7 @@ def CopyFile(String source, String target, String file)
 	}
 	else
 	{
-		RunCommand("robocopy \"${source}\" \"${target}\" ${file}")
+		RunCommand("robocopy \"${source}\" \"${target}\" ${file} /IS /IT /IM")
 	}
 }
 
@@ -89,7 +89,7 @@ def CopyDirectory(String source, String target)
 	}
 	else
 	{
-		RunCommand("robocopy \"${source}\" \"${target}\"")
+		RunCommand("robocopy \"${source}\" \"${target}\" /IS /IT /IM")
 	}
 }
 
