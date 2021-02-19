@@ -57,6 +57,10 @@ def UpdateNumber(String NewNumber)
 	if(isUnix())
 	{
 		RunCommand("sed -i '' \"/BuildNumber=/s/=.*/=${NewNumber}/\" ${ConfigFile}")
+		//absolutely disgusting fix
+		//the first command replaces both these values with a number
+		//so this second one fixes the guff
+		RunCommand("sed -i '' \"/bUseJenkinsBuildNumber=/s/=.*/=true/\" ${ConfigFile}")
 	}
 	else
 	{
