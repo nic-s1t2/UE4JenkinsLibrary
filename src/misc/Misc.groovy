@@ -49,7 +49,7 @@ def MakeWritable(String targetFile)
 {
 	if(isUnix())
 	{
-		RunCommand("sudo chmod u=rw,g=rw,o=rw \"${targetFile}\"")
+		RunCommand("sudo chmod -R 777 \"${targetFile}\"")
 	}
 	else
 	{
