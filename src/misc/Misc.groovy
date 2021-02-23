@@ -26,7 +26,7 @@ def BuildVsProject(String vsProjPath, String configuration)
 {
 	if(isUnix())
 	{
-		RunCommand("msbuild \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
+		RunCommand("/Library/Frameworks/Mono.framework/Versions/Current/Commands/msbuild \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
 	}
 	else
 	{
