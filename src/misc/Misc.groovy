@@ -26,7 +26,7 @@ def BuildVsProject(String vsProjPath, String configuration)
 {
 	if(isUnix())
 	{
-		RunCommand("/usr/local/bin/msbuild \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
+		RunCommand("msbuild \"${vsProjPath}\" -t:rebuild -r -p:\"Configuration=${configuration}\"")
 	}
 	else
 	{
