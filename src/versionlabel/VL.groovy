@@ -19,7 +19,7 @@ def RunCommand(def Command)
 
 def Test()
 {
-	RunCommand("call \"%~dp0/test.bat\"")
+	RunCommand("call \"%~dp0test.bat\"")
 }
 
 def Initialise(String InProjectDir)
