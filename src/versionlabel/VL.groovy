@@ -20,7 +20,8 @@ def RunCommand(def Command)
 def Test()
 {
 	//RunCommand("%~dp0test.bat")
-	RunCommand("%~dp0")
+	//RunCommand("%~dp0")
+	echo "test"
 }
 
 def Initialise(String InProjectDir)
